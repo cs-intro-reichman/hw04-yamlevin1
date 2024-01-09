@@ -3,7 +3,7 @@ public class ArrayOps {
         // int[] arrMissingInt = new int[] { 0, 2, 3, 1, 5 };
         // System.out.println(findMissingInt(arrMissingInt));
 
-        //int[] arrSecondMax = new int[] {2,8,3,7,8};
+        //int[] arrSecondMax = new int[] {-202,48,13,7,8};
         //System.out.println(secondMaxValue(arrSecondMax));
 
         // int[] arrTheSameElements1 = new int[] { 3, -4, 1, 2, 5 };
@@ -37,13 +37,22 @@ public class ArrayOps {
     public static int secondMaxValue(int[] array) {
         int max = array[0];
         int secondMax = array[0];
+        int indexMax= 0;
 
-        // finds the second max value
+        // finds the max value
         for (int i = 1; i < array.length; i++) {
             if (max < array[i]) {
                 max = array[i];
+                indexMax = i;
             }
-            if ((secondMax < array[i]) && (array[i] < max)) {
+        }
+        // finds the second max value
+        for (int i = 1; i < array.length; i++) {
+            //check if the max value appears twice in the array
+            if ((max == array[i]) && (indexMax != i)) {
+                secondMax = array[i];
+            }
+            else if ((secondMax < array[i]) && (array[i] < max)) {
                 secondMax = array[i];
             }
         }
