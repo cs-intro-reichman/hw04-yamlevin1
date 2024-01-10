@@ -22,11 +22,11 @@ public class StringOps {
     ////// ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        // String capVowelsLowRest = "F";
-        // System.out.println(capVowelsLowRest(capVowelsLowRest));
+        String capVowelsLowRest = "One two tHReeI world";
+        System.out.println(capVowelsLowRest(capVowelsLowRest));
 
-        String camelCase = " tWo    wordS";
-        System.out.println(camelCase(camelCase));
+        // String camelCase = " tWo wordS";
+        // System.out.println(camelCase(camelCase));
 
     }
 
@@ -39,7 +39,9 @@ public class StringOps {
                 result = result + (char) (string.charAt(i) - 32);
             }
             // checks if the char is uppercase
-            else if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z') {
+            else if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z' && string.charAt(i) != 'A'
+                    && string.charAt(i) != 'E' && string.charAt(i) != 'I' && string.charAt(i) != 'O'
+                    && string.charAt(i) != 'U') {
                 result = result + (char) (string.charAt(i) + 32);
             } else {
                 result = result + (char) (string.charAt(i));
@@ -55,7 +57,7 @@ public class StringOps {
             // changes to lowercase
             if ((string.charAt(i) != 32) && (string.charAt(i) >= 'A') && (string.charAt(i) <= 'Z')) {
                 result = result + (char) (string.charAt(i) + 32);
-            // checks if the char is space
+                // checks if the char is space
             } else if (string.charAt(i) == 32) {
                 // checks if the space is in the beggining of the input
                 if (result.length() == 0) {
