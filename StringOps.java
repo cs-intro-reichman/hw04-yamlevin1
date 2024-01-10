@@ -25,8 +25,8 @@ public class StringOps {
         // String capVowelsLowRest = "F";
         // System.out.println(capVowelsLowRest(capVowelsLowRest));
 
-        //String camelCase = " Intro to coMPUter sCIEncE ";
-        //System.out.println(camelCase(camelCase));
+        String camelCase = " tWo    wordS";
+        System.out.println(camelCase(camelCase));
 
     }
 
@@ -71,7 +71,7 @@ public class StringOps {
                 else if ((i + 1) < string.length() && string.charAt(i + 1) >= 'a' && string.charAt(i) <= 'z') {
                     result = result + (char) (string.charAt(i + 1) - 32);
                     i++;
-                } else if ((i + 1) < string.length()) {
+                } else if ((i + 1) < string.length() && string.charAt(i + 1) >= 'A' && string.charAt(i) <= 'Z') {
                     result = result + (char) (string.charAt(i + 1));
                     i++;
                 }
