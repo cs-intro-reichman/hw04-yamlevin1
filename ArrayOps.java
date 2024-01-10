@@ -1,34 +1,56 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        // int[] arrMissingInt = new int[] { 0, 2, 3, 1, 5 };
-        // System.out.println(findMissingInt(arrMissingInt));
+        //int[] arrMissingInt = new int[] {0};
+       // System.out.println(findMissingInt(arrMissingInt));
 
-        //int[] arrSecondMax = new int[] {-202,48,13,7,8};
-        //System.out.println(secondMaxValue(arrSecondMax));
+        // int[] arrSecondMax = new int[] {-202,48,13,7,8};
+        // System.out.println(secondMaxValue(arrSecondMax));
 
         // int[] arrTheSameElements1 = new int[] { 3, -4, 1, 2, 5 };
         // int[] arrTheSameElements2 = new int[] { 1, 3, -4, 5 };
         // System.out.println(containsTheSameElements(arrTheSameElements1,
         // arrTheSameElements2));
 
-        //int[] arrIsSorted = new int[] {1,3,2};
-        //System.out.println(isSorted(arrIsSorted));
+        // int[] arrIsSorted = new int[] {1,3,2};
+        // System.out.println(isSorted(arrIsSorted));
+        /*
+         * int missingNum = array[0];
+         * int numInArr = 0;
+         * 
+         * for (int i = 0; i < array.length; i++) {
+         * if (numInArr != array[i]) {
+         * if (i == array.length - 1) {
+         * missingNum = numInArr;
+         * break;
+         * }
+         * numInArr++;
+         * } else {
+         * numInArr++;
+         * }
+         * }
+         * return missingNum;
+         */
 
     }
 
     public static int findMissingInt(int[] array) {
-        int missingNum = array[0];
-        int numInArr = 0;
+        int[] result = new int[array.length + 1];
 
-        for (int i = 0; i < array.length; i++) {
-            if (numInArr != array[i]) {
-                if (i == array.length - 1) {
-                    missingNum = numInArr;
+        //finds the full array
+        for (int i = 0; i < result.length; i++) {
+            result[i] = i;
+        }
+
+        int missingNum = 0;
+
+        //finds the missing number from the given array
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (result[i] == array[j]) {
                     break;
+                } else if (j == (array.length - 1)) {
+                    missingNum = result[i];
                 }
-                numInArr++;
-            } else {
-                numInArr++;
             }
         }
         return missingNum;
@@ -37,7 +59,7 @@ public class ArrayOps {
     public static int secondMaxValue(int[] array) {
         int max = array[0];
         int secondMax = array[0];
-        int indexMax= 0;
+        int indexMax = 0;
 
         // finds the max value
         for (int i = 1; i < array.length; i++) {
@@ -48,11 +70,10 @@ public class ArrayOps {
         }
         // finds the second max value
         for (int i = 1; i < array.length; i++) {
-            //check if the max value appears twice in the array
+            // check if the max value appears twice in the array
             if ((max == array[i]) && (indexMax != i)) {
                 secondMax = array[i];
-            }
-            else if ((secondMax < array[i]) && (array[i] < max)) {
+            } else if ((secondMax < array[i]) && (array[i] < max)) {
                 secondMax = array[i];
             }
         }
@@ -84,17 +105,17 @@ public class ArrayOps {
         boolean isSorted = false;
 
         for (int i = 1; i < array.length; i++) {
-            //checks if the array sorted decreasingly
+            // checks if the array sorted decreasingly
             if ((max >= array[i]) && (min == array[0])) {
                 max = array[i];
                 isSorted = true;
             }
-            //checks if the array sorted increasingly
+            // checks if the array sorted increasingly
             else if ((min <= array[i]) && (max == array[0])) {
                 min = array[i];
                 isSorted = true;
-            } 
-            //checks if the array is not sorted
+            }
+            // checks if the array is not sorted
             else {
                 isSorted = false;
             }
