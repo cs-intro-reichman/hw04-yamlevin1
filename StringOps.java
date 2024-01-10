@@ -22,11 +22,19 @@ public class StringOps {
     ////// ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String capVowelsLowRest = "One two tHReeI world";
-        System.out.println(capVowelsLowRest(capVowelsLowRest));
+        //String capVowelsLowRest = "One two tHReeI world";
+        //System.out.println(capVowelsLowRest(capVowelsLowRest));
 
         // String camelCase = " tWo wordS";
         // System.out.println(camelCase(camelCase));
+
+        //String allIndexOfString = "MMMM";
+        //char allIndexOfChar = 'M';
+        //int[] check = allIndexOf(allIndexOfString, allIndexOfChar);
+
+        //for(int i = 0; i < check.length; i++){
+        //    System.out.print("," + check[i]);
+       // }
 
     }
 
@@ -38,7 +46,7 @@ public class StringOps {
                     || string.charAt(i) == 'u') {
                 result = result + (char) (string.charAt(i) - 32);
             }
-            // checks if the char is uppercase
+            // checks if the char is uppercase and not A,E,I,O,U
             else if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z' && string.charAt(i) != 'A'
                     && string.charAt(i) != 'E' && string.charAt(i) != 'I' && string.charAt(i) != 'O'
                     && string.charAt(i) != 'U') {
@@ -85,7 +93,22 @@ public class StringOps {
     }
 
     public static int[] allIndexOf(String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int indexOfChar = 0;
+        // checks how many times the char is appear in the string
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {
+                indexOfChar++;
+            }
+        }
+        int[] arrResult = new int[indexOfChar];
+        int indexOfArrResult = 0;
+
+        //creats new array with the indexes in which the character appears in the string
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {
+                arrResult[indexOfArrResult++] = i;
+            }
+        }
+        return arrResult;
     }
 }
